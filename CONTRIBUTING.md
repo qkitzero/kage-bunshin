@@ -70,7 +70,7 @@ Create a new Markdown file in `.claude/agents/`:
 ```markdown
 ---
 name: my-agent
-model: opus
+model: sonnet
 description: >
   What this agent does and when to use it.
 tools:
