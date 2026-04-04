@@ -27,10 +27,16 @@
 // .claude/settings.local.json
 {
   "env": {
-    "KAGE_BUNSHIN_NOTEBOOK": "/path/to/your/notebook-repo"
+    "NOTEBOOK_PATH": "/path/to/your/notebook-repo"
+  },
+  "permissions": {
+    "additionalDirectories": ["/path/to/your/notebook-repo"]
   }
 }
 ```
+
+- `NOTEBOOK_PATH`: Notebookリポジトリの絶対パス
+- `additionalDirectories`: Notebookは外部リポジトリのため、Claude Codeのファイル操作許可範囲に追加が必要
 
 #### Notebookエントリ形式
 ```markdown
