@@ -45,8 +45,7 @@ notebook-repo/
 ├── reviews/      # analyst
 ├── research/     # researcher
 ├── plans/        # planner
-├── learnings/    # analyst via /learning
-└── index.md
+└── learnings/    # analyst via /learning
 ```
 
 #### Notebook Entry Format
@@ -75,6 +74,7 @@ Body
 - `OUTPUT_LANGUAGE`: Set the output language (`en`, `ja`, etc.). If not set, agents match the user's input language (default: English).
 
 ## Rules
+- At the start of a new session, if `NOTEBOOK_PATH` is set, scan the Notebook for the 3 most recently updated entries (across all directories, based on modification time or the `date` field in frontmatter) to understand the user's current context and ongoing work
 - Each agent writes its own deliverables
 - If Notebook is not configured, skip persistence and output results only
 - Each agent does not work outside its area of expertise

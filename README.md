@@ -164,8 +164,7 @@ notebook-repo/
 ├── reviews/      # Evaluations & reviews (analyst)
 ├── research/     # Research reports (researcher)
 ├── plans/        # Project plans (planner)
-├── learnings/    # Retrospectives & lessons (analyst via /learning)
-└── index.md      # Master index (for search)
+└── learnings/    # Retrospectives & lessons (analyst via /learning)
 ```
 
 ### Entry Format
