@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.svg" alt="Kage Bunshin" width="100%">
+</p>
+
 # Kage Bunshin - あなたの第二の脳
 
 コーディング以外の知的作業を複数の特化型AIエージェントが協力して行う、Claude Code用OSSエージェントシステムです。アイデア出し、評価、計画、調査、執筆、レビューなど、あなたの「思考」を多角的にサポートします。

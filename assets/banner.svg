@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#312e81"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="300" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <g opacity="0.05" stroke="#e0e7ff" stroke-width="1">
+    <line x1="0" y1="60" x2="1200" y2="60"/>
+    <line x1="0" y1="120" x2="1200" y2="120"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/>
+    <line x1="200" y1="0" x2="200" y2="300"/>
+    <line x1="400" y1="0" x2="400" y2="300"/>
+    <line x1="600" y1="0" x2="600" y2="300"/>
+    <line x1="800" y1="0" x2="800" y2="300"/>
+    <line x1="1000" y1="0" x2="1000" y2="300"/>
+  </g>
+
+  <!-- Ninja group -->
+  <g transform="translate(280, 150)">
+    <!-- Left clone -->
+    <g opacity="0.2" transform="translate(-55, 6) scale(0.55)">
+      <circle cx="0" cy="-20" r="52" fill="#6366f1"/>
+      <rect x="-38" y="32" width="76" height="50" rx="12" fill="#6366f1"/>
+      <rect x="-52" y="-36" width="104" height="28" rx="6" fill="#0f0a3e"/>
+      <rect x="-36" y="-30" width="72" height="16" rx="4" fill="#c7d2fe"/>
+    </g>
+
+    <!-- Right clone -->
+    <g opacity="0.2" transform="translate(55, 6) scale(0.55)">
+      <circle cx="0" cy="-20" r="52" fill="#6366f1"/>
+      <rect x="-38" y="32" width="76" height="50" rx="12" fill="#6366f1"/>
+      <rect x="-52" y="-36" width="104" height="28" rx="6" fill="#0f0a3e"/>
+      <rect x="-36" y="-30" width="72" height="16" rx="4" fill="#c7d2fe"/>
+    </g>
+
+    <!-- Main ninja -->
+    <g>
+      <circle cx="0" cy="-20" r="40" fill="url(#accent)"/>
+      <rect x="-30" y="20" width="60" height="44" rx="10" fill="url(#accent)"/>
+      <rect x="-42" y="-34" width="84" height="22" rx="5" fill="#0f0a3e"/>
+      <rect x="-28" y="-29" width="56" height="13" rx="4" fill="#c7d2fe"/>
+      <circle cx="-12" cy="-23" r="3.5" fill="#0f0a3e"/>
+      <circle cx="12" cy="-23" r="3.5" fill="#0f0a3e"/>
+      <path d="M42,-24 Q56,-18 64,-30" stroke="#0f0a3e" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+      <path d="M42,-19 Q58,-10 68,-22" stroke="#0f0a3e" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Text -->
+  <text x="480" y="153" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="56" font-weight="700" fill="#e0e7ff" letter-spacing="-1">
+    Kage Bunshin
+  </text>
+  <text x="480" y="188" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="20" fill="#a5b4fc" letter-spacing="1">
+    AI agents for knowledge work, not code
+  </text>
+</svg>
