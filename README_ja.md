@@ -164,8 +164,7 @@ notebook-repo/
 ├── reviews/      # 評価・レビュー（analyst）
 ├── research/     # リサーチレポート（researcher）
 ├── plans/        # プロジェクト計画（planner）
-├── learnings/    # 振り返り・教訓（analyst via /learning）
-└── index.md      # マスターインデックス（検索用）
+└── learnings/    # 振り返り・教訓（analyst via /learning）
 ```
 
 ### エントリの形式
