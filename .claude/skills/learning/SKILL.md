@@ -1,5 +1,5 @@
 ---
-name: retrospect
+name: learning
 description: >
   構造化された振り返りと教訓の抽出。完了した作業やプロジェクトについて振り返りたい
   ときに使用する。「振り返り」「レトロスペクティブ」「何を学んだか」「反省」
@@ -7,7 +7,7 @@ description: >
 user-invocable: true
 ---
 
-# Retrospect スキル
+# Learning スキル
 
 Analyst エージェントを使い、構造化された振り返りと教訓の永続化を行うワークフローです。
 

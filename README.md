@@ -95,7 +95,7 @@ ResearcherとPlannerが協力して、リサーチに基づいたプロジェク
 Analystが構造化された振り返りを行います。
 
 ```
-/retrospect "Q1のプロジェクト振り返り"
+/learning "Q1のプロジェクト振り返り"
 ```
 
 ### Notebook操作
@@ -157,7 +157,7 @@ notebook-repo/
 ├── reviews/      # 評価・レビュー（analyst）
 ├── research/     # リサーチレポート（researcher）
 ├── plans/        # プロジェクト計画（planner）
-├── learnings/    # 振り返り・教訓（analyst via /retrospect）
+├── learnings/    # 振り返り・教訓（analyst via /learning）
 └── index.md      # マスターインデックス（検索用）
 ```
 
