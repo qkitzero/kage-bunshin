@@ -252,12 +252,6 @@ Knowledge accumulated in the Notebook increases in value over time. Past ideas, 
 
 ---
 
-## License
-
-MIT License. See [LICENSE](./LICENSE) for details.
-
----
-
 <p align="center">
   If you find this project useful, please consider giving it a ⭐
 </p>
