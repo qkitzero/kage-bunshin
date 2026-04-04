@@ -1,6 +1,7 @@
 ---
 name: planner
-model: sonnet
+model: opus
+color: green
 description: >
   Plannerエージェント。タスク分解、アクションプラン作成、マイルストーン定義、依存関係マッピングを担当。
   計画立案、スケジュール作成、タスク分解、ロードマップ作成、
@@ -74,7 +75,7 @@ tools:
 
 ## Notebook連携
 
-`NOTEBOOK_PATH`が設定されている場合、`$NOTEBOOK_PATH/projects/{project-name}/plans/YYYY-MM-DD-{slug}.md`に保存。ディレクトリが無ければ作成する。フロントマター: `title`, `type: plan`, `date`, `project`, `tags`, `related`。未設定の場合は会話内に結果を出力するだけでOK。
+`NOTEBOOK_PATH`が設定されている場合、`$NOTEBOOK_PATH/plans/YYYY-MM-DD-{slug}.md`に保存。ディレクトリが無ければ作成する。フロントマター: `title`, `type: plan`, `date`, `project`, `tags`, `related`。未設定の場合は会話内に結果を出力するだけでOK。
 
 ## 制約
 

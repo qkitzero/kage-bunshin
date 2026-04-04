@@ -1,6 +1,7 @@
 ---
 name: analyst
-model: sonnet
+model: opus
+color: red
 description: >
   Analystエージェント。批判的分析、リスク評価、品質レビュー、実現可能性判断を担当。
   「これどう思う？」「問題点は？」「レビューして」「評価して」「フィードバックが欲しい」
@@ -92,9 +93,8 @@ tools:
 ## Notebook連携
 
 `NOTEBOOK_PATH`が設定されている場合：
-- 評価結果: `$NOTEBOOK_PATH/evaluations/YYYY-MM-DD-{slug}.md` に保存
-- レビュー結果: `$NOTEBOOK_PATH/reviews/YYYY-MM-DD-{slug}.md` に保存
-- フロントマター: `title`, `type: evaluation`, `date`, `project`, `tags`, `related`
+- 評価・レビュー結果: `$NOTEBOOK_PATH/reviews/YYYY-MM-DD-{slug}.md` に保存
+- フロントマター: `title`, `type: review`, `date`, `project`, `tags`, `related`
 
 未設定の場合は会話内に結果を出力するだけでOK。
 

@@ -65,7 +65,7 @@ NOTEBOOK_PATH が設定されている場合、リサーチ結果を $NOTEBOOK_P
 6. インパクト (Impact): 実現した場合の影響の大きさ
 
 総合判定として Go / Conditional Go / No-Go の推奨を出してください。
-NOTEBOOK_PATH が設定されている場合、評価結果を $NOTEBOOK_PATH/evaluations/ に保存すること
+NOTEBOOK_PATH が設定されている場合、評価結果を $NOTEBOOK_PATH/reviews/ に保存すること
 ```
 
 ### ステップ4: 最終出力

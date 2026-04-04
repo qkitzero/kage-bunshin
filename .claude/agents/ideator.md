@@ -1,6 +1,7 @@
 ---
 name: ideator
-model: sonnet
+model: opus
+color: yellow
 description: >
   Ideatorエージェント。創造的ブレインストーミング、発散思考、新しいアイデアの生成を担当。
   アイデア出し、「何か面白いことない？」、新機能提案、解決策の発想、
@@ -51,7 +52,7 @@ tools:
 ## Notebook連携
 
 `NOTEBOOK_PATH`が設定されている場合：
-- 保存先: `$NOTEBOOK_PATH/brain/ideas/YYYY-MM-DD-{slug}.md` に保存
+- 保存先: `$NOTEBOOK_PATH/ideas/YYYY-MM-DD-{slug}.md` に保存
 - フロントマター: `title`, `type: idea`, `date`, `project`, `tags`, `related`
 
 未設定の場合は会話内に結果を出力するだけでOK。
