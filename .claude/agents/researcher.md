@@ -1,6 +1,7 @@
 ---
 name: researcher
-model: sonnet
+model: opus
+color: blue
 description: >
   Researcherエージェント。深い調査、情報収集、ソースの三角検証、情報の統合を担当。
   調べもの、リサーチ、技術調査、市場調査、比較分析、
