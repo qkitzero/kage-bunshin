@@ -118,7 +118,7 @@ planner の出力をもとに、以下の形式で最終出力を作成する：
 
 ステップ3のplanner指示に、Notebook保存の指示を含める：
 ```
-NOTEBOOK_PATH が設定されている場合、計画書を $NOTEBOOK_PATH/projects/ に保存すること
+NOTEBOOK_PATH が設定されている場合、計画書を $NOTEBOOK_PATH/plans/ に保存すること
 ```
 
 `NOTEBOOK_PATH` が未設定の場合は、保存をスキップし結果を会話内に出力するのみとする。

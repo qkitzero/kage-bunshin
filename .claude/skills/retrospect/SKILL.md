@@ -63,8 +63,7 @@ Analyst エージェントを使い、構造化された振り返りと教訓の
    - 他の場面にも応用可能な汎用的な形で表現
 
 NOTEBOOK_PATH が設定されている場合：
-- 振り返り全文を $NOTEBOOK_PATH/retrospectives/ に保存
-- 各教訓を個別エントリとして $NOTEBOOK_PATH/brain/learnings/ に保存
+- 振り返りと教訓を $NOTEBOOK_PATH/learnings/YYYY-MM-DD-{slug}.md に保存
 ```
 
 ### ステップ3: 最終出力

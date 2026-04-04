@@ -153,16 +153,12 @@ Notebookは、エージェントの成果物を保存するための専用gitリ
 
 ```
 notebook-repo/
-├── brain/
-│   ├── ideas/              # アイデア
-│   ├── decisions/          # 意思決定の記録
-│   └── learnings/          # 学んだこと
-├── projects/{name}/        # プロジェクト固有のデータ
-├── research/               # リサーチレポート
-├── documents/              # 執筆コンテンツ
-├── evaluations/            # 評価結果
-├── retrospectives/         # 振り返りノート
-└── index.md                # マスターインデックス（検索用）
+├── ideas/        # アイデア（ideator）
+├── reviews/      # 評価・レビュー（analyst）
+├── research/     # リサーチレポート（researcher）
+├── plans/        # プロジェクト計画（planner）
+├── learnings/    # 振り返り・教訓（analyst via /retrospect）
+└── index.md      # マスターインデックス（検索用）
 ```
 
 ### エントリの形式
@@ -172,7 +168,7 @@ notebook-repo/
 ```markdown
 ---
 title: エントリ名
-type: idea | decision | learning | plan | evaluation | research | note
+type: idea | review | research | plan | learning
 date: 2026-04-01
 project: プロジェクト名
 tags: [tag1, tag2]

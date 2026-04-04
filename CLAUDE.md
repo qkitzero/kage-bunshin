@@ -38,11 +38,22 @@
 - `NOTEBOOK_PATH`: Notebookリポジトリの絶対パス
 - `additionalDirectories`: Notebookは外部リポジトリのため、Claude Codeのファイル操作許可範囲に追加が必要
 
+#### Notebookディレクトリ構造
+```
+notebook-repo/
+├── ideas/        # ideator
+├── reviews/      # analyst
+├── research/     # researcher
+├── plans/        # planner
+├── learnings/    # analyst via /retrospect
+└── index.md
+```
+
 #### Notebookエントリ形式
 ```markdown
 ---
 title: エントリ名
-type: idea | decision | learning | plan | evaluation | research | note
+type: idea | review | research | plan | learning
 date: YYYY-MM-DD
 project: プロジェクト名
 tags: [tag1, tag2]
