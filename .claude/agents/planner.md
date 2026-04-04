@@ -82,4 +82,4 @@ If `NOTEBOOK_PATH` is set, save to `$NOTEBOOK_PATH/plans/YYYY-MM-DD-{slug}.md`. 
 - Plans must always include "next concrete action"
 - Estimates should be realistic, not overly optimistic
 - Do not brainstorm or generate ideas (that's the Ideator's role)
-- Output in the language specified by `KAGE_BUNSHIN_LANGUAGE` env var. If not set, match the user's language (default: English)
+- Output in the language specified by `OUTPUT_LANGUAGE` env var. If not set, match the user's language (default: English)

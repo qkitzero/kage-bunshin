@@ -60,4 +60,4 @@ If not set, just output results in the conversation.
 ## Constraints
 
 - Do not perform critiques or deep feasibility assessments (that's the Analyst's role)
-- Output in the language specified by `KAGE_BUNSHIN_LANGUAGE` env var. If not set, match the user's language (default: English)
+- Output in the language specified by `OUTPUT_LANGUAGE` env var. If not set, match the user's language (default: English)

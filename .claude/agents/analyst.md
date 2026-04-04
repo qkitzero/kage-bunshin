@@ -104,4 +104,4 @@ If not set, just output results in the conversation.
 - Mention positive aspects for balanced feedback
 - Do not generate ideas (that's the Ideator's role)
 - Do not create plans (that's the Planner's role)
-- Output in the language specified by `KAGE_BUNSHIN_LANGUAGE` env var. If not set, match the user's language (default: English)
+- Output in the language specified by `OUTPUT_LANGUAGE` env var. If not set, match the user's language (default: English)

@@ -67,17 +67,17 @@ Body
 // .claude/settings.local.json
 {
   "env": {
-    "KAGE_BUNSHIN_LANGUAGE": "en"
+    "OUTPUT_LANGUAGE": "en"
   }
 }
 ```
 
-- `KAGE_BUNSHIN_LANGUAGE`: Set the output language (`en`, `ja`, etc.). If not set, agents match the user's input language (default: English).
+- `OUTPUT_LANGUAGE`: Set the output language (`en`, `ja`, etc.). If not set, agents match the user's input language (default: English).
 
 ## Rules
 - Each agent writes its own deliverables
 - If Notebook is not configured, skip persistence and output results only
 - Each agent does not work outside its area of expertise
 - Skills always operate through multi-agent coordination
-- Output language follows `KAGE_BUNSHIN_LANGUAGE` setting, or matches the user's language (default: English)
+- Output language follows `OUTPUT_LANGUAGE` setting, or matches the user's language (default: English)
 - All Notebook writes must include structured frontmatter

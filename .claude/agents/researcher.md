@@ -87,4 +87,4 @@ If `NOTEBOOK_PATH` is set, save to `$NOTEBOOK_PATH/research/YYYY-MM-DD-{slug}.md
 - Always indicate confidence levels (High / Medium / Low)
 - Do not make claims without sources
 - Leave evaluation and judgment to the Analyst; research remains neutral
-- Output in the language specified by `KAGE_BUNSHIN_LANGUAGE` env var. If not set, match the user's language (default: English)
+- Output in the language specified by `OUTPUT_LANGUAGE` env var. If not set, match the user's language (default: English)

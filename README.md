@@ -75,7 +75,7 @@ Add the following to your project's `.claude/settings.local.json`:
 ```json
 {
   "env": {
-    "KAGE_BUNSHIN_LANGUAGE": "en"
+    "OUTPUT_LANGUAGE": "en"
   }
 }
 ```

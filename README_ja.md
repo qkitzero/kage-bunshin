@@ -75,7 +75,7 @@ cp -r kage-bunshin/.claude/ /path/to/your/project/.claude/
 ```json
 {
   "env": {
-    "KAGE_BUNSHIN_LANGUAGE": "ja"
+    "OUTPUT_LANGUAGE": "ja"
   }
 }
 ```
