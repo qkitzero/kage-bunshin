@@ -143,7 +143,7 @@ git checkout -b feature/your-feature
 2. Make your changes and commit
 
 - Write clear commit messages
-- Reference issue numbers where applicable (e.g., `#11`)
+- Reference issue numbers where applicable
 
 3. Push and create a pull request targeting `develop`
 
