@@ -47,10 +47,16 @@ cp -r kage-bunshin/.claude/ /path/to/your/project/.claude/
 ```json
 {
   "env": {
-    "KAGE_BUNSHIN_NOTEBOOK": "/path/to/your/notebook-repo"
+    "NOTEBOOK_PATH": "/path/to/your/notebook-repo"
+  },
+  "permissions": {
+    "additionalDirectories": ["/path/to/your/notebook-repo"]
   }
 }
 ```
+
+- `NOTEBOOK_PATH`: Notebookリポジトリの**絶対パス**を指定してください
+- `additionalDirectories`: Notebookは本プロジェクト外のディレクトリにあるため、Claude Codeがファイルを読み書きできるよう許可範囲に追加する必要があります
 
 これで準備完了です。Claude Codeを起動して、スキルを使い始めましょう。
 
@@ -135,7 +141,10 @@ Notebookは、エージェントの成果物を保存するための専用gitリ
 ```json
 {
   "env": {
-    "KAGE_BUNSHIN_NOTEBOOK": "/path/to/notebook"
+    "NOTEBOOK_PATH": "/path/to/your/notebook-repo"
+  },
+  "permissions": {
+    "additionalDirectories": ["/path/to/your/notebook-repo"]
   }
 }
 ```

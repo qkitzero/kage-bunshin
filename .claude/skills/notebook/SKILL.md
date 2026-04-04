@@ -13,7 +13,7 @@ Notebookに対する検索・閲覧・整理・統計操作を行うワークフ
 
 ## 前提確認
 
-まず `KAGE_BUNSHIN_NOTEBOOK` 環境変数を確認する。
+まず `NOTEBOOK_PATH` 環境変数を確認する。
 
 **未設定の場合:**
 ```
@@ -24,7 +24,10 @@ Notebookが設定されていません。
 2. .claude/settings.local.json に以下を追加：
    {
      "env": {
-       "KAGE_BUNSHIN_NOTEBOOK": "/path/to/your/notebook"
+       "NOTEBOOK_PATH": "/path/to/your/notebook-repo"
+     },
+     "permissions": {
+       "additionalDirectories": ["/path/to/your/notebook-repo"]
      }
    }
 3. Claude Code を再起動
@@ -47,7 +50,7 @@ Notebookが設定されていません。
 
 ### ステップ2: 操作の実行
 
-`$KAGE_BUNSHIN_NOTEBOOK` のパスに対して、以下のツールを直接使って操作する。
+`$NOTEBOOK_PATH` のパスに対して、以下のツールを直接使って操作する。
 
 #### search 操作
 

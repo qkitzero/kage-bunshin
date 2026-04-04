@@ -62,9 +62,9 @@ Analyst エージェントを使い、構造化された振り返りと教訓の
    - この経験から得られた最も重要な教訓を3つ
    - 他の場面にも応用可能な汎用的な形で表現
 
-KAGE_BUNSHIN_NOTEBOOK が設定されている場合：
-- 振り返り全文を $KAGE_BUNSHIN_NOTEBOOK/retrospectives/ に保存
-- 各教訓を個別エントリとして $KAGE_BUNSHIN_NOTEBOOK/brain/learnings/ に保存
+NOTEBOOK_PATH が設定されている場合：
+- 振り返り全文を $NOTEBOOK_PATH/retrospectives/ に保存
+- 各教訓を個別エントリとして $NOTEBOOK_PATH/brain/learnings/ に保存
 ```
 
 ### ステップ3: 最終出力

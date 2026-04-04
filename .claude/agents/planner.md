@@ -74,7 +74,7 @@ tools:
 
 ## Notebook連携
 
-`KAGE_BUNSHIN_NOTEBOOK`が設定されている場合、`$KAGE_BUNSHIN_NOTEBOOK/projects/{project-name}/plans/YYYY-MM-DD-{slug}.md`に保存。ディレクトリが無ければ作成する。フロントマター: `title`, `type: plan`, `date`, `project`, `tags`, `related`。未設定の場合は会話内に結果を出力するだけでOK。
+`NOTEBOOK_PATH`が設定されている場合、`$NOTEBOOK_PATH/projects/{project-name}/plans/YYYY-MM-DD-{slug}.md`に保存。ディレクトリが無ければ作成する。フロントマター: `title`, `type: plan`, `date`, `project`, `tags`, `related`。未設定の場合は会話内に結果を出力するだけでOK。
 
 ## 制約
 
