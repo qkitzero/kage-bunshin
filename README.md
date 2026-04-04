@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Kage Bunshin" width="100%">
+  <img src="assets/banner.svg" alt="Kage Bunshin - AI agents for knowledge work, not code" width="100%">
 </p>
 
 # Kage Bunshin - あなたの第二の脳
