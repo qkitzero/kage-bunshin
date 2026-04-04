@@ -50,28 +50,11 @@ tools:
 
 ## Notebook連携
 
-アイデア出力後、Notebookへの保存を行います。
+`KAGE_BUNSHIN_NOTEBOOK`が設定されている場合：
+- 保存先: `$KAGE_BUNSHIN_NOTEBOOK/brain/ideas/YYYY-MM-DD-{slug}.md` に保存
+- フロントマター: `title`, `type: idea`, `date`, `project`, `tags`, `related`
 
-```bash
-# Notebook設定の確認
-if [ -n "$KAGE_BUNSHIN_NOTEBOOK" ]; then
-  # 保存先: $KAGE_BUNSHIN_NOTEBOOK/brain/ideas/
-  # ファイル名: YYYY-MM-DD-{slug}.md
-fi
-```
-
-Notebook保存時のフロントマター形式：
-```yaml
----
-title: アイデアタイトル
-type: idea
-date: YYYY-MM-DD
-tags: [関連タグ]
-related: []
----
-```
-
-`KAGE_BUNSHIN_NOTEBOOK`が未設定の場合は、会話内に結果を出力するだけでOKです。
+未設定の場合は会話内に結果を出力するだけでOK。
 
 ## 制約
 

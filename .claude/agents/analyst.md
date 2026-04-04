@@ -94,7 +94,7 @@ tools:
 `KAGE_BUNSHIN_NOTEBOOK`が設定されている場合：
 - 評価結果: `$KAGE_BUNSHIN_NOTEBOOK/evaluations/YYYY-MM-DD-{slug}.md` に保存
 - レビュー結果: `$KAGE_BUNSHIN_NOTEBOOK/reviews/YYYY-MM-DD-{slug}.md` に保存
-- フロントマター: `title`, `type: evaluation`, `date`, `tags`, `related`
+- フロントマター: `title`, `type: evaluation`, `date`, `project`, `tags`, `related`
 
 未設定の場合は会話内に結果を出力するだけでOK。
 
