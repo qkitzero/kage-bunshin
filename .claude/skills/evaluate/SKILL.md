@@ -38,7 +38,7 @@ Researcher と Analyst エージェントを協調させ、アイデアや提案
 5. 実現に必要な主要リソース・技術
 
 簡潔なリサーチサマリーとして出力してください。
-KAGE_BUNSHIN_NOTEBOOK が設定されている場合、リサーチ結果を $KAGE_BUNSHIN_NOTEBOOK/research/ に保存すること
+NOTEBOOK_PATH が設定されている場合、リサーチ結果を $NOTEBOOK_PATH/research/ に保存すること
 ```
 
 ### ステップ3: 評価フェーズ（Analyst）
@@ -65,7 +65,7 @@ KAGE_BUNSHIN_NOTEBOOK が設定されている場合、リサーチ結果を $KA
 6. インパクト (Impact): 実現した場合の影響の大きさ
 
 総合判定として Go / Conditional Go / No-Go の推奨を出してください。
-KAGE_BUNSHIN_NOTEBOOK が設定されている場合、評価結果を $KAGE_BUNSHIN_NOTEBOOK/evaluations/ に保存すること
+NOTEBOOK_PATH が設定されている場合、評価結果を $NOTEBOOK_PATH/evaluations/ に保存すること
 ```
 
 ### ステップ4: 最終出力

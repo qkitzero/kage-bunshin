@@ -78,7 +78,7 @@ tools:
 
 ## Notebook連携
 
-`KAGE_BUNSHIN_NOTEBOOK`が設定されている場合、`$KAGE_BUNSHIN_NOTEBOOK/research/YYYY-MM-DD-{slug}.md`に保存。フロントマター: `title`, `type: research`, `date`, `project`, `tags`, `related`。未設定の場合は会話内に結果を出力するだけでOK。
+`NOTEBOOK_PATH`が設定されている場合、`$NOTEBOOK_PATH/research/YYYY-MM-DD-{slug}.md`に保存。フロントマター: `title`, `type: research`, `date`, `project`, `tags`, `related`。未設定の場合は会話内に結果を出力するだけでOK。
 
 ## 制約
 

@@ -32,7 +32,7 @@ Ideator と Analyst エージェントを協調させ、アイデアの発散と
 - 各アイデアは異なるアプローチ・視点から発想すること
 - 安全策だけでなく、大胆なアイデアも含めること
 - 各アイデアに概要、背景・根拠、インパクト評価を付けること
-- KAGE_BUNSHIN_NOTEBOOK が設定されている場合、結果を $KAGE_BUNSHIN_NOTEBOOK/brain/ideas/ に保存すること
+- NOTEBOOK_PATH が設定されている場合、結果を $NOTEBOOK_PATH/brain/ideas/ に保存すること
 ```
 
 ### ステップ3: 評価フェーズ（Analyst）
@@ -52,7 +52,7 @@ Ideator と Analyst エージェントを協調させ、アイデアの発散と
 - リスク (Risk: 低い方が高スコア)
 
 さらに、各アイデアの強み・弱み・改善案を簡潔に述べてください。
-KAGE_BUNSHIN_NOTEBOOK が設定されている場合、評価結果を $KAGE_BUNSHIN_NOTEBOOK/evaluations/ に保存すること
+NOTEBOOK_PATH が設定されている場合、評価結果を $NOTEBOOK_PATH/evaluations/ に保存すること
 ```
 
 ### ステップ4: 統合・ランキング

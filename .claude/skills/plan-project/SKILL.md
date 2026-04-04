@@ -42,7 +42,7 @@ Researcher と Planner エージェントを協調させ、調査に裏付けら
 5. 想定すべきリスクと対策
 
 簡潔なリサーチサマリーとして出力してください。
-KAGE_BUNSHIN_NOTEBOOK が設定されている場合、リサーチ結果を $KAGE_BUNSHIN_NOTEBOOK/research/ に保存すること
+NOTEBOOK_PATH が設定されている場合、リサーチ結果を $NOTEBOOK_PATH/research/ に保存すること
 ```
 
 ### ステップ3: 計画フェーズ（Planner）
@@ -118,10 +118,10 @@ planner の出力をもとに、以下の形式で最終出力を作成する：
 
 ステップ3のplanner指示に、Notebook保存の指示を含める：
 ```
-KAGE_BUNSHIN_NOTEBOOK が設定されている場合、計画書を $KAGE_BUNSHIN_NOTEBOOK/projects/ に保存すること
+NOTEBOOK_PATH が設定されている場合、計画書を $NOTEBOOK_PATH/projects/ に保存すること
 ```
 
-`KAGE_BUNSHIN_NOTEBOOK` が未設定の場合は、保存をスキップし結果を会話内に出力するのみとする。
+`NOTEBOOK_PATH` が未設定の場合は、保存をスキップし結果を会話内に出力するのみとする。
 
 ## 出力形式
 

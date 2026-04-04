@@ -50,8 +50,8 @@ tools:
 
 ## Notebook連携
 
-`KAGE_BUNSHIN_NOTEBOOK`が設定されている場合：
-- 保存先: `$KAGE_BUNSHIN_NOTEBOOK/brain/ideas/YYYY-MM-DD-{slug}.md` に保存
+`NOTEBOOK_PATH`が設定されている場合：
+- 保存先: `$NOTEBOOK_PATH/brain/ideas/YYYY-MM-DD-{slug}.md` に保存
 - フロントマター: `title`, `type: idea`, `date`, `project`, `tags`, `related`
 
 未設定の場合は会話内に結果を出力するだけでOK。
