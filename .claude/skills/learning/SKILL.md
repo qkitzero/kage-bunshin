@@ -1,130 +1,130 @@
 ---
 name: learning
 description: >
-  構造化された振り返りと教訓の抽出。完了した作業やプロジェクトについて振り返りたい
-  ときに使用する。「学習」「振り返り」「レトロスペクティブ」「何を学んだか」「反省」
-  「次に活かすべきこと」を求められたときにトリガーされる。
+  Structured retrospective and lesson extraction. Use when reflecting on completed work or projects.
+  Triggered by "learning", "retrospective", "what did we learn?", "reflection",
+  or "what to apply next time".
 user-invocable: true
 ---
 
-# Learning スキル
+# Learning Skill
 
-Analyst エージェントを使い、構造化された振り返りと教訓の永続化を行うワークフローです。
+A workflow that uses the Analyst agent to perform structured retrospectives and persist lessons learned.
 
-## ワークフロー
+## Workflow
 
-### ステップ1: 振り返り対象の把握
+### Step 1: Understand the Retrospective Target
 
-ユーザーから提示された振り返り対象を正確に理解する。以下を明確にする：
-- 対象（プロジェクト、スプリント、意思決定、イベントなど）
-- 期間（いつからいつまで）
-- 関係者・コンテキスト
-- 当初の目標・期待
+Accurately understand the retrospective target presented by the user. Clarify:
+- Subject (project, sprint, decision, event, etc.)
+- Time period (from when to when)
+- Stakeholders & context
+- Original goals & expectations
 
-ユーザーが詳細を語りやすいように、オープンな質問で補足情報を引き出す。
+Use open questions to help the user elaborate on details.
 
-### ステップ1.5: 過去のNotebookコンテキスト取得
+### Step 1.5: Retrieve Past Notebook Context
 
-`NOTEBOOK_PATH` が設定されている場合、振り返り対象に関連する過去の教訓を検索する：
+If `NOTEBOOK_PATH` is set, search for past lessons related to the retrospective target:
 
-1. `$NOTEBOOK_PATH/learnings/` 内を対象のキーワードで Grep（タイトル、タグ、本文を対象）
-2. マッチしたエントリを最大3件まで Read（フロントマター＋本文の先頭200文字）
-3. 取得した内容を以下の形式でステップ2のエージェント指示の冒頭に追加する：
-
-```
-## 過去の関連教訓（Notebookより）
-### [タイトル] (date: YYYY-MM-DD)
-[本文の先頭200文字]
-```
-
-マッチが0件、または `NOTEBOOK_PATH` が未設定の場合はこのステップをスキップする。
-
-### ステップ2: 分析フェーズ（Analyst）
-
-`analyst` エージェントを呼び出し、構造化された分析を行わせる：
-
-**analyst への指示:**
-```
-以下の内容について構造化された振り返り分析を行ってください：
-
-【振り返り対象】
-[対象の説明]
-
-【期間・コンテキスト】
-[期間や背景情報]
-
-【当初の目標】
-[目標や期待]
-
-以下のフレームワークで分析してください：
-
-1. **うまくいったこと (What went well)**
-   - 成功した要因を3〜5個特定
-   - なぜうまくいったのかの分析
-
-2. **うまくいかなかったこと (What didn't go well)**
-   - 問題・課題を3〜5個特定
-   - 根本原因の分析
-
-3. **パターンの発見 (Patterns)**
-   - 繰り返し見られるパターン
-   - 過去の類似経験との関連
-
-4. **次にやるべきこと (What to do differently)**
-   - 具体的・実行可能な改善アクション
-   - 各アクションの優先度（高/中/低）
-
-5. **核心的学び (Key Learnings)**
-   - この経験から得られた最も重要な教訓を3つ
-   - 他の場面にも応用可能な汎用的な形で表現
-
-NOTEBOOK_PATH が設定されている場合：
-- 振り返りと教訓を $NOTEBOOK_PATH/learnings/YYYY-MM-DD-{slug}.md に保存（フロントマターの type は `learning` とすること）
-```
-
-### ステップ3: 最終出力
+1. Grep `$NOTEBOOK_PATH/learnings/` for keywords from the target (searching title, tags, and body)
+2. Read up to 3 matching entries (frontmatter + first 200 characters of body)
+3. Prepend the retrieved content to the agent instructions in Step 2 in this format:
 
 ```
-## 振り返り: [対象名]
+## Related Past Lessons (from Notebook)
+### [Title] (date: YYYY-MM-DD)
+[First 200 characters of body]
+```
 
-### 期間・コンテキスト
-[概要]
+Skip this step if zero matches or `NOTEBOOK_PATH` is not set.
+
+### Step 2: Analysis Phase (Analyst)
+
+Invoke the `analyst` agent to perform structured analysis:
+
+**Instructions for analyst:**
+```
+Perform a structured retrospective analysis on the following:
+
+[Retrospective Target]
+[Target description]
+
+[Time Period & Context]
+[Period and background information]
+
+[Original Goals]
+[Goals and expectations]
+
+Analyze using the following framework:
+
+1. **What went well**
+   - Identify 3-5 success factors
+   - Analyze why they worked
+
+2. **What didn't go well**
+   - Identify 3-5 problems/challenges
+   - Root cause analysis
+
+3. **Patterns**
+   - Recurring patterns observed
+   - Connections to similar past experiences
+
+4. **What to do differently**
+   - Specific, actionable improvement actions
+   - Priority for each action (High / Medium / Low)
+
+5. **Key Learnings**
+   - The 3 most important lessons from this experience
+   - Express in a generalizable form applicable to other contexts
+
+If NOTEBOOK_PATH is set:
+- Save retrospective and lessons to $NOTEBOOK_PATH/learnings/YYYY-MM-DD-{slug}.md (frontmatter type must be `learning`)
+```
+
+### Step 3: Final Output
+
+```
+## Retrospective: [Subject]
+
+### Time Period & Context
+[Overview]
 
 ---
 
-### うまくいったこと
-1. **[項目]**: [説明]
+### What Went Well
+1. **[Item]**: [Description]
 2. ...
 
-### うまくいかなかったこと
-1. **[項目]**: [説明]
-   - 根本原因: ...
+### What Didn't Go Well
+1. **[Item]**: [Description]
+   - Root cause: ...
 2. ...
 
-### パターン
-- [繰り返し見られる傾向]
+### Patterns
+- [Recurring trends observed]
 
-### 次にやるべきこと
-| アクション | 優先度 | 備考 |
-|------------|--------|------|
-| ... | 高 | ... |
+### What to Do Differently
+| Action | Priority | Notes |
+|--------|----------|-------|
+| ... | High | ... |
 
-### 核心的学び
-1. **[教訓タイトル]**: [汎用的な形で表現した学び]
+### Key Learnings
+1. **[Lesson Title]**: [Generalized learning]
 2. ...
 3. ...
 
 ---
 
-### Notebook保存
-- [保存ステータスと保存先]
+### Notebook Save
+- [Save status and location]
 ```
 
-## 出力形式
+## Output Format
 
-最終的にユーザーに提示するのは：
-1. うまくいったこと / うまくいかなかったこと
-2. 発見されたパターン
-3. 具体的な改善アクション（優先度付き）
-4. 核心的な教訓（3つ）
-5. Notebook保存ステータス
+Present the following to the user:
+1. What went well / What didn't go well
+2. Discovered patterns
+3. Specific improvement actions (with priority)
+4. Key lessons (3)
+5. Notebook save status

@@ -1,28 +1,28 @@
 # Kage Bunshin - Second Brain Agent System
 
-開発以外の知的作業を複数の特化型エージェントが協力して行うClaude Code用OSSエージェントシステム。
+An OSS agent system for Claude Code where multiple specialized agents collaborate on intellectual work beyond coding.
 
-## アーキテクチャ
+## Architecture
 
 ### Agents (`.claude/agents/`)
-4種の特化型エージェント。各エージェントは固有の思考スタイルを持ち、成果物を自ら書き出す。
-- **ideator** - 発散思考、ブレインストーミング、創造的アイデア生成
-- **analyst** - 批判的分析、リスク評価、品質レビュー、実現可能性判断
-- **planner** - タスク分解、スケジューリング、依存関係管理
-- **researcher** - 深い調査、情報収集、多角的検証
+4 specialized agents. Each has a unique thinking style and writes its own deliverables.
+- **ideator** - Divergent thinking, brainstorming, creative idea generation
+- **analyst** - Critical analysis, risk assessment, quality reviews, feasibility evaluation
+- **planner** - Task breakdown, scheduling, dependency management
+- **researcher** - Deep investigation, information gathering, multi-source verification
 
 ### Skills (`.claude/skills/`)
-複数エージェントをオーケストレーションするワークフロー。
-- `/brainstorm` - ideator + analyst による多角的アイデア出し
-- `/evaluate` - researcher + analyst による構造化評価
-- `/plan-project` - researcher + planner による目標分解
-- `/learning` - analyst による振り返りとNotebook保存
-- `/notebook` - Notebook の検索・管理操作
+Workflows that orchestrate multiple agents.
+- `/brainstorm` - Multi-perspective ideation via ideator + analyst
+- `/evaluate` - Structured evaluation via researcher + analyst
+- `/plan-project` - Goal decomposition via researcher + planner
+- `/learning` - Retrospective and lesson extraction via analyst
+- `/notebook` - Notebook search and management
 
 ### Notebook
-ユーザー固有のデータを保存する**別リポジトリ**。成果物はすべてフロントマター付きMarkdownで構造化。
+A **separate repository** for storing user-specific data. All deliverables are structured as Markdown with frontmatter.
 
-#### Notebook設定
+#### Notebook Setup
 ```json
 // .claude/settings.local.json
 {
@@ -35,10 +35,10 @@
 }
 ```
 
-- `NOTEBOOK_PATH`: Notebookリポジトリの絶対パス
-- `additionalDirectories`: Notebookは外部リポジトリのため、Claude Codeのファイル操作許可範囲に追加が必要
+- `NOTEBOOK_PATH`: Absolute path to the Notebook repository
+- `additionalDirectories`: Required because the Notebook is an external repository outside Claude Code's default file access scope
 
-#### Notebookディレクトリ構造
+#### Notebook Directory Structure
 ```
 notebook-repo/
 ├── ideas/        # ideator
@@ -49,23 +49,35 @@ notebook-repo/
 └── index.md
 ```
 
-#### Notebookエントリ形式
+#### Notebook Entry Format
 ```markdown
 ---
-title: エントリ名
+title: Entry name
 type: idea | review | research | plan | learning
 date: YYYY-MM-DD
-project: プロジェクト名
+project: Project name
 tags: [tag1, tag2]
 related: [path/to/related.md]
 ---
-本文
+Body
 ```
 
-## ルール
-- 各エージェントは成果物を自ら書き出す
-- Notebook未設定の場合、成果物の永続化はスキップし結果のみ出力する
-- 各エージェントは自身の専門領域外の作業を行わない
-- スキルは必ず複数エージェントの協調で動作する
-- 出力言語はユーザーの言語に合わせる（デフォルト: 日本語）
-- Notebookへの書き込みは必ず構造化フロントマター付き
+### Language Configuration
+```json
+// .claude/settings.local.json
+{
+  "env": {
+    "KAGE_BUNSHIN_LANGUAGE": "en"
+  }
+}
+```
+
+- `KAGE_BUNSHIN_LANGUAGE`: Set the output language (`en`, `ja`, etc.). If not set, agents match the user's input language (default: English).
+
+## Rules
+- Each agent writes its own deliverables
+- If Notebook is not configured, skip persistence and output results only
+- Each agent does not work outside its area of expertise
+- Skills always operate through multi-agent coordination
+- Output language follows `KAGE_BUNSHIN_LANGUAGE` setting, or matches the user's language (default: English)
+- All Notebook writes must include structured frontmatter
