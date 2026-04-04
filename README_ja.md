@@ -2,25 +2,34 @@
   <img src="assets/banner.svg" alt="Kage Bunshin - AI agents for knowledge work, not code" width="100%">
 </p>
 
+<p align="center">
+
 [English](README.md) | [日本語](README_ja.md)
 
-# Kage Bunshin - あなたの第二の脳
+</p>
 
-コーディング以外の知的作業を複数の特化型AIエージェントが協力して行う、Claude Code用OSSエージェントシステムです。アイデア出し、評価、計画、調査、執筆、レビューなど、あなたの「思考」を多角的にサポートします。
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://github.com/qkitzero/kage-bunshin/stargazers"><img src="https://img.shields.io/github/stars/qkitzero/kage-bunshin?style=social" alt="Stars"></a>
+  <img src="https://img.shields.io/badge/Claude%20Code-compatible-blueviolet" alt="Claude Code compatible">
+  <a href="https://github.com/qkitzero/kage-bunshin/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+</p>
+
+# Kage Bunshin
+
+複数の特化型AIエージェントが、ブレインストーミング・評価・計画・調査・振り返りなど、コーディング以外の知的作業を協力して行うClaude Code用エージェントシステムです。
 
 ---
 
 ## 特徴
 
-**思考特化のエージェントシステム** -- 多くのAIエージェントがコーディングを支援する中、Kage Bunshinはあなたの「考える力」を拡張します。アイデア創出、批判的評価、プロジェクト計画、リサーチ、執筆、レビューなど、知的作業全般をカバーします。
+**思考特化のエージェントシステム** — 多くのAIエージェントがコーディングを支援する中、Kage Bunshinはあなたの「考える力」を拡張します。アイデア創出、批判的評価、プロジェクト計画、リサーチ、振り返りをカバーします。
 
-**Notebook** -- エージェントの成果物を保存する専用のgitリポジトリ。アイデア、意思決定、学びがプロジェクトを跨いでも失われません。あなたの「知の蓄積」がどこにでも持ち運べます。
+**Notebook** — エージェントの成果物を保存する専用のgitリポジトリ。アイデア、意思決定、学びがプロジェクトを跨いでも失われません。あなたの知識がどこにでも持ち運べます。
 
-**多角的コラボレーション** -- 一つの課題に対して、異なる思考スタイルを持つ複数のエージェントが協調して取り組みます。Ideatorがアイデアを広げ、Analystがそれを研ぎ澄ます。単一視点では見落としがちな盲点をカバーします。
+**多角的コラボレーション** — 異なる思考スタイルを持つ複数のエージェントが協調して取り組みます。Ideatorがアイデアを広げ、Analystがそれを研ぎ澄ます。盲点をカバーします。
 
-**構造化されたナレッジグラフ** -- 全ての出力はフロントマター、タグ、相互参照付きのMarkdownで構造化されています。人間が読んでも、機械が検索しても使いやすい形式です。
-
-**ポータブルな知識基盤** -- Notebookは独立したgitリポジトリなので、プロジェクト間・マシン間で自由に持ち運べます。あなたの知識がどこでも使えます。
+**構造化されたナレッジグラフ** — 全ての出力はフロントマター、タグ、相互参照付きのMarkdownで構造化されています。人間が読んでも、機械が検索しても使いやすい形式です。
 
 ---
 
@@ -61,10 +70,17 @@ cp -r kage-bunshin/.claude/ /path/to/your/project/.claude/
 }
 ```
 
-- `NOTEBOOK_PATH`: Notebookリポジトリの**絶対パス**を指定してください
-- `additionalDirectories`: Notebookは本プロジェクト外のディレクトリにあるため、Claude Codeがファイルを読み書きできるよう許可範囲に追加する必要があります
+4. (オプション) 出力言語を設定する
 
-これで準備完了です。Claude Codeを起動して、スキルを使い始めましょう。
+```json
+{
+  "env": {
+    "KAGE_BUNSHIN_LANGUAGE": "ja"
+  }
+}
+```
+
+5. Claude Codeを起動して、スキルを使い始めましょう！
 
 ---
 
@@ -98,7 +114,7 @@ ResearcherとPlannerが協力して、リサーチに基づいたプロジェク
 
 ### 振り返り
 
-Analystが構造化された振り返りを行います。
+Analystが構造化された振り返りを行い、教訓を抽出します。
 
 ```
 /learning "Q1のプロジェクト振り返り"
@@ -139,21 +155,6 @@ Notebookは、エージェントの成果物を保存するための専用gitリ
 - **プライバシー**: 個人的な思考やアイデアをプロジェクトリポジトリに混ぜません
 - **衝突回避**: メインリポジトリのgit履歴を汚しません
 - **永続性**: プロジェクトが終了しても、学びや知見は残り続けます
-
-### セットアップ
-
-`.claude/settings.local.json` に以下を追加：
-
-```json
-{
-  "env": {
-    "NOTEBOOK_PATH": "/path/to/your/notebook-repo"
-  },
-  "permissions": {
-    "additionalDirectories": ["/path/to/your/notebook-repo"]
-  }
-}
-```
 
 ### ディレクトリ構造
 
@@ -254,3 +255,9 @@ Notebookに蓄積された知識は、時間とともに価値を増します。
 ## ライセンス
 
 MIT License. 詳細は [LICENSE](./LICENSE) を参照してください。
+
+---
+
+<p align="center">
+  このプロジェクトが役に立ったら ⭐ をお願いします
+</p>
