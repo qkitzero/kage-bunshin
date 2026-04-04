@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main ninja body -->
+  <g transform="translate(256, 225)">
+    <!-- Shadow clones (left and right, slightly transparent) -->
+    <!-- Left clone -->
+    <g opacity="0.25" transform="translate(-90, 10) scale(0.85)">
+      <circle cx="0" cy="-20" r="52" fill="#6366f1"/>
+      <rect x="-38" y="32" width="76" height="56" rx="12" fill="#6366f1"/>
+      <rect x="-52" y="-36" width="104" height="28" rx="6" fill="#1e1b4b"/>
+      <rect x="-36" y="-30" width="72" height="16" rx="4" fill="#e0e7ff"/>
+    </g>
+
+    <!-- Right clone -->
+    <g opacity="0.25" transform="translate(90, 10) scale(0.85)">
+      <circle cx="0" cy="-20" r="52" fill="#6366f1"/>
+      <rect x="-38" y="32" width="76" height="56" rx="12" fill="#6366f1"/>
+      <rect x="-52" y="-36" width="104" height="28" rx="6" fill="#1e1b4b"/>
+      <rect x="-36" y="-30" width="72" height="16" rx="4" fill="#e0e7ff"/>
+    </g>
+
+    <!-- Center ninja (main) -->
+    <g>
+      <!-- Head -->
+      <circle cx="0" cy="-20" r="56" fill="url(#grad)"/>
+      <!-- Body -->
+      <rect x="-42" y="36" width="84" height="60" rx="14" fill="url(#grad)"/>
+      <!-- Headband -->
+      <rect x="-58" y="-38" width="116" height="30" rx="7" fill="#1e1b4b"/>
+      <!-- Eyes -->
+      <rect x="-40" y="-32" width="80" height="18" rx="5" fill="#e0e7ff"/>
+      <!-- Eye pupils -->
+      <circle cx="-18" cy="-23" r="5" fill="#1e1b4b"/>
+      <circle cx="18" cy="-23" r="5" fill="#1e1b4b"/>
+      <!-- Headband tails -->
+      <path d="M58,-28 Q78,-20 88,-38" stroke="#1e1b4b" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M58,-22 Q82,-12 94,-28" stroke="#1e1b4b" stroke-width="6" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Text -->
+  <text x="256" y="380" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="48" font-weight="700" fill="#1e1b4b" letter-spacing="-1">
+    Kage Bunshin
+  </text>
+  <text x="256" y="413" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="18" fill="#6366f1" letter-spacing="2">
+    AI agents for knowledge work, not code
+  </text>
+</svg>
