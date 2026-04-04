@@ -24,7 +24,10 @@ Notebookが設定されていません。
 2. .claude/settings.local.json に以下を追加：
    {
      "env": {
-       "NOTEBOOK_PATH": "/path/to/your/notebook"
+       "NOTEBOOK_PATH": "/path/to/your/notebook-repo"
+     },
+     "permissions": {
+       "additionalDirectories": ["/path/to/your/notebook-repo"]
      }
    }
 3. Claude Code を再起動

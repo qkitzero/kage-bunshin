@@ -141,10 +141,10 @@ Notebookは、エージェントの成果物を保存するための専用gitリ
 ```json
 {
   "env": {
-    "NOTEBOOK_PATH": "/path/to/notebook"
+    "NOTEBOOK_PATH": "/path/to/your/notebook-repo"
   },
   "permissions": {
-    "additionalDirectories": ["/path/to/notebook"]
+    "additionalDirectories": ["/path/to/your/notebook-repo"]
   }
 }
 ```
