@@ -16,7 +16,7 @@
 - `/brainstorm` - ideator + analyst による多角的アイデア出し
 - `/evaluate` - researcher + analyst による構造化評価
 - `/plan-project` - researcher + planner による目標分解
-- `/retrospect` - analyst による振り返りとNotebook保存
+- `/learning` - analyst による振り返りとNotebook保存
 - `/notebook` - Notebook の検索・管理操作
 
 ### Notebook
@@ -45,7 +45,7 @@ notebook-repo/
 ├── reviews/      # analyst
 ├── research/     # researcher
 ├── plans/        # planner
-├── learnings/    # analyst via /retrospect
+├── learnings/    # analyst via /learning
 └── index.md
 ```
 
