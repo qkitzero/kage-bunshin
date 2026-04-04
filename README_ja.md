@@ -175,7 +175,7 @@ notebook-repo/
 ---
 title: エントリ名
 type: idea | review | research | plan | learning
-date: 2026-04-01
+date: YYYY-MM-DD
 project: プロジェクト名
 tags: [tag1, tag2]
 related: [path/to/related.md]

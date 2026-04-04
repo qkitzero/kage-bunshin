@@ -176,7 +176,7 @@ All Notebook entries are Markdown with frontmatter.
 ---
 title: Entry name
 type: idea | review | research | plan | learning
-date: 2026-04-01
+date: YYYY-MM-DD
 project: Project name
 tags: [tag1, tag2]
 related: [path/to/related.md]
