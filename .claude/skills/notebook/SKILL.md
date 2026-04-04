@@ -1,27 +1,27 @@
 ---
 name: notebook
 description: >
-  Notebookの管理・検索・整理。Notebookの操作全般に使用する。
-  「過去のアイデアを探して」「Notebookを検索」「ナレッジベースを見せて」
-  「記録を整理して」「保存した内容を確認」のときにトリガーされる。
+  Notebook management, search, and organization. Use for all Notebook operations.
+  Triggered by "find past ideas", "search Notebook", "show knowledge base",
+  "organize records", or "check saved content".
 user-invocable: true
 ---
 
-# Notebook スキル
+# Notebook Skill
 
-Notebookに対する検索・閲覧・整理・統計操作を行うワークフローです。
+A workflow for performing search, browse, organize, and stats operations on the Notebook.
 
-## 前提確認
+## Prerequisites
 
-まず `NOTEBOOK_PATH` 環境変数を確認する。
+First check the `NOTEBOOK_PATH` environment variable.
 
-**未設定の場合:**
+**If not set:**
 ```
-Notebookが設定されていません。
+Notebook is not configured.
 
-セットアップ方法：
-1. Notebook用のgitリポジトリを作成
-2. .claude/settings.local.json に以下を追加：
+Setup instructions:
+1. Create a git repository for your Notebook
+2. Add the following to .claude/settings.local.json:
    {
      "env": {
        "NOTEBOOK_PATH": "/path/to/your/notebook-repo"
@@ -30,69 +30,69 @@ Notebookが設定されていません。
        "additionalDirectories": ["/path/to/your/notebook-repo"]
      }
    }
-3. Claude Code を再起動
+3. Restart Claude Code
 ```
 
-これを表示して終了する。以降のワークフローは Notebook 設定済みの場合のみ実行する。
+Display this and exit. The following workflow only executes when Notebook is configured.
 
-## ワークフロー
+## Workflow
 
-### ステップ1: 操作の判定
+### Step 1: Determine the Operation
 
-ユーザーのリクエストを以下のいずれかの操作に分類する：
+Classify the user's request into one of these operations:
 
-| 操作 | トリガー例 |
-|------|-----------|
-| **search** | 「〜を探して」「〜に関する記録は？」「〜について何か保存してある？」 |
-| **browse** | 「最近の記録を見せて」「一覧を表示」「Notebookの中身は？」 |
-| **organize** | 「タグを整理して」「関連付けを更新」「クロスリファレンスを追加」 |
-| **stats** | 「Notebookの統計」「どれくらい貯まってる？」「内訳を見せて」 |
+| Operation | Trigger Examples |
+|-----------|-----------------|
+| **search** | "find...", "any records about...?", "anything saved about...?" |
+| **browse** | "show recent records", "list entries", "what's in the Notebook?" |
+| **organize** | "organize tags", "update cross-references", "add related links" |
+| **stats** | "Notebook statistics", "how much is stored?", "show breakdown" |
 
-### ステップ2: 操作の実行
+### Step 2: Execute the Operation
 
-`$NOTEBOOK_PATH` のパスに対して、以下のツールを直接使って操作する。
+Operate directly on the `$NOTEBOOK_PATH` path using the following tools.
 
-#### search 操作
+#### search
 
-1. Glob でファイル名マッチング
-2. Grep でフロントマターの tags, title, type をマッチング
-3. Grep で本文のキーワードマッチング
+1. Glob for filename matching
+2. Grep frontmatter tags, title, type for matching
+3. Grep body for keyword matching
 
-結果は以下の形式で出力：
-- ファイルパス、タイトル、タイプ、日付
-- 関連するスニペット（該当箇所の前後2行）
+Output results in this format:
+- File path, title, type, date
+- Relevant snippet (2 lines before/after the match)
 
-#### browse 操作
+#### browse
 
-1. Glob で全エントリを取得
-2. 各ファイルのフロントマターを Read で取得
-3. タイプ別にグループ化、日付降順でソート
+1. Glob to retrieve all entries
+2. Read frontmatter of each file
+3. Group by type, sort by date descending
 
-#### organize 操作
+#### organize
 
-1. 対象エントリを Read で確認
-2. フロントマターの tags / related フィールドを Edit で更新
-3. index.md を更新（日付、タイトル、タイプ、パスのテーブル形式）
+1. Read target entries
+2. Edit frontmatter tags / related fields
+3. Update index.md (table format with date, title, type, path)
 
-変更を行う前に、変更内容をユーザーに確認すること。
+Confirm changes with the user before making modifications.
 
-#### stats 操作
+#### stats
 
-1. Glob で全エントリをカウント
-2. Grep でタイプ別・プロジェクト別に集計
-3. タグの出現頻度を集計
+1. Glob to count all entries
+2. Grep to aggregate by type and project
+3. Aggregate tag frequency
 
-### ステップ3: 結果の整形と出力
+### Step 3: Format and Output Results
 
-操作結果を見やすく整形してユーザーに提示する。
+Format operation results for easy reading and present to the user.
 
-操作結果に応じて、関連するスキルの提案も行う：
-- 検索結果のアイデアに対して → 「`/evaluate` で再評価できます」
-- 古い計画に対して → 「`/learning` で振り返りできます」
-- 関連エントリが少ない場合 → 「`/notebook organize` でクロスリファレンスを追加できます」
+Based on results, suggest related skills:
+- For search results with ideas → "You can re-evaluate with `/evaluate`"
+- For old plans → "You can reflect with `/learning`"
+- For entries with few related links → "You can add cross-references with `/notebook organize`"
 
-## 出力形式
+## Output Format
 
-操作に応じた結果を整形して提示する。必ず以下を含む：
-1. 操作結果
-2. 関連する次のアクションの提案
+Present formatted results appropriate to the operation. Always include:
+1. Operation results
+2. Suggested next actions

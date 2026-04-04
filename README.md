@@ -2,51 +2,62 @@
   <img src="assets/banner.svg" alt="Kage Bunshin - AI agents for knowledge work, not code" width="100%">
 </p>
 
-# Kage Bunshin - あなたの第二の脳
+<p align="center">
 
-コーディング以外の知的作業を複数の特化型AIエージェントが協力して行う、Claude Code用OSSエージェントシステムです。アイデア出し、評価、計画、調査、執筆、レビューなど、あなたの「思考」を多角的にサポートします。
+[English](README.md) | [日本語](README_ja.md)
+
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="https://github.com/qkitzero/kage-bunshin/stargazers"><img src="https://img.shields.io/github/stars/qkitzero/kage-bunshin?style=social" alt="Stars"></a>
+  <img src="https://img.shields.io/badge/Claude%20Code-compatible-blueviolet" alt="Claude Code compatible">
+  <a href="https://github.com/qkitzero/kage-bunshin/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
+</p>
+
+# Kage Bunshin
+
+Multiple specialized AI agents collaborate on your intellectual work — brainstorming, evaluation, planning, research, and reflection — all within Claude Code.
 
 ---
 
-## 特徴
+## Features
 
-**思考特化のエージェントシステム** -- 多くのAIエージェントがコーディングを支援する中、Kage Bunshinはあなたの「考える力」を拡張します。アイデア創出、批判的評価、プロジェクト計画、リサーチ、執筆、レビューなど、知的作業全般をカバーします。
+**Thinking-first agent system** — While most AI agents assist with coding, Kage Bunshin extends your *thinking*. Idea generation, critical evaluation, project planning, research, and retrospectives.
 
-**Notebook** -- エージェントの成果物を保存する専用のgitリポジトリ。アイデア、意思決定、学びがプロジェクトを跨いでも失われません。あなたの「知の蓄積」がどこにでも持ち運べます。
+**Notebook** — A dedicated git repository that stores all agent outputs. Ideas, decisions, and learnings persist across projects and sessions. Your knowledge travels with you.
 
-**多角的コラボレーション** -- 一つの課題に対して、異なる思考スタイルを持つ複数のエージェントが協調して取り組みます。Ideatorがアイデアを広げ、Analystがそれを研ぎ澄ます。単一視点では見落としがちな盲点をカバーします。
+**Multi-perspective collaboration** — Multiple agents with different thinking styles work together on each challenge. The Ideator expands possibilities while the Analyst sharpens them. Blind spots get covered.
 
-**構造化されたナレッジグラフ** -- 全ての出力はフロントマター、タグ、相互参照付きのMarkdownで構造化されています。人間が読んでも、機械が検索しても使いやすい形式です。
-
-**ポータブルな知識基盤** -- Notebookは独立したgitリポジトリなので、プロジェクト間・マシン間で自由に持ち運べます。あなたの知識がどこでも使えます。
+**Structured knowledge graph** — All outputs are structured Markdown with frontmatter, tags, and cross-references. Human-readable and machine-searchable.
 
 ---
 
-## クイックスタート
+## Quick Start
 
-### 前提条件
+### Prerequisites
 
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) がインストール済みであること
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) installed
 
-### セットアップ
+### Setup
 
-1. リポジトリをクローンする
+1. Clone this repository
 
 ```bash
 git clone https://github.com/qkitzero/kage-bunshin.git
 ```
 
-2. `.claude/` ディレクトリを自分のプロジェクトにコピーする
+2. Copy the `.claude/` directory to your project
 
 ```bash
 cp -r kage-bunshin/.claude/ /path/to/your/project/.claude/
 ```
 
-または、プラグインとしてそのまま利用することもできます。
+Or use it directly as a plugin.
 
-3. (オプション) Notebookのパスを設定する
+3. (Optional) Configure Notebook path
 
-プロジェクトの `.claude/settings.local.json` に以下を追加します：
+Add the following to your project's `.claude/settings.local.json`:
 
 ```json
 {
@@ -59,196 +70,188 @@ cp -r kage-bunshin/.claude/ /path/to/your/project/.claude/
 }
 ```
 
-- `NOTEBOOK_PATH`: Notebookリポジトリの**絶対パス**を指定してください
-- `additionalDirectories`: Notebookは本プロジェクト外のディレクトリにあるため、Claude Codeがファイルを読み書きできるよう許可範囲に追加する必要があります
+4. (Optional) Set output language
 
-これで準備完了です。Claude Codeを起動して、スキルを使い始めましょう。
+```json
+{
+  "env": {
+    "OUTPUT_LANGUAGE": "en"
+  }
+}
+```
+
+5. Launch Claude Code and start using skills!
 
 ---
 
-## 使い方
+## Usage
 
-Kage BunshinはClaude Codeのスキル（スラッシュコマンド）として利用します。
+Kage Bunshin works through Claude Code skills (slash commands).
 
-### ブレインストーミング
+### Brainstorm
 
-IdeatorとAnalystが協力して、多角的なアイデア出しを行います。
-
-```
-/brainstorm "新しいSaaSアプリのアイデア"
-```
-
-### 評価
-
-ResearcherとAnalystが協力して、構造化された実現可能性評価を行います。
+Ideator and Analyst collaborate for multi-perspective idea generation.
 
 ```
-/evaluate "モバイルファーストのタスク管理アプリ"
+/brainstorm "Ideas for a new SaaS app"
 ```
 
-### プロジェクト計画
+### Evaluate
 
-ResearcherとPlannerが協力して、リサーチに基づいたプロジェクト計画を立てます。
-
-```
-/plan-project "個人ブログの構築"
-```
-
-### 振り返り
-
-Analystが構造化された振り返りを行います。
+Researcher and Analyst collaborate for structured feasibility assessment.
 
 ```
-/learning "Q1のプロジェクト振り返り"
+/evaluate "Mobile-first task management app"
 ```
 
-### Notebook操作
+### Plan Project
 
-Notebookの検索・管理を行います。
+Researcher and Planner collaborate for research-backed project planning.
 
 ```
-/notebook search "API設計"
+/plan-project "Building a personal blog"
+```
+
+### Learning
+
+Analyst performs structured retrospectives and extracts lessons.
+
+```
+/learning "Q1 project retrospective"
+```
+
+### Notebook
+
+Search and manage your Notebook.
+
+```
+/notebook search "API design"
 ```
 
 ---
 
-## エージェント一覧
+## Agents
 
-Kage Bunshinには4種の特化型エージェントが存在します。各エージェントは固有の思考スタイルを持ち、成果物を自ら書き出します。
+Kage Bunshin has 4 specialized agents. Each has a unique thinking style and writes its own deliverables.
 
-| エージェント | 役割 | 思考スタイル |
-|---|---|---|
-| Ideator | 発散思考、ブレインストーミング | 可能性を広げる。「もし〜だったら？」を繰り返し、制約を外して自由に発想する |
-| Analyst | 批判的分析、リスク評価、品質レビュー | エビデンスに基づく分析。評価とレビューの両面で建設的なフィードバックを提供する |
-| Planner | タスク分解、スケジューリング | 全体を俯瞰し、段階的に分解する。依存関係とリスクを考慮した現実的な計画 |
-| Researcher | 深い調査、情報収集 | 多角的検証と体系的な情報整理。一次情報を重視し、バイアスに注意する |
+| Agent | Role | Thinking Style |
+|-------|------|---------------|
+| Ideator | Divergent thinking, brainstorming | Expands possibilities. Repeatedly asks "What if...?", removing constraints for free thinking |
+| Analyst | Critical analysis, risk assessment, quality reviews | Evidence-based analysis. Provides constructive feedback through both evaluation and review |
+| Planner | Task breakdown, scheduling | Bird's-eye view with step-by-step decomposition. Realistic plans considering dependencies and risks |
+| Researcher | Deep investigation, information gathering | Multi-source verification and systematic organization. Prioritizes primary sources, watches for bias |
 
 ---
 
 ## Notebook
 
-### Notebookとは
+### What is a Notebook?
 
-Notebookは、エージェントの成果物を保存するための専用gitリポジトリです。通常のプロジェクトリポジトリとは別に管理されます。
+A Notebook is a dedicated git repository for storing agent deliverables. It is managed separately from your project repository.
 
-### なぜ別リポジトリなのか
+### Why a Separate Repository?
 
-- **ポータビリティ**: プロジェクトが変わっても、あなたの知識は持ち運べます
-- **プライバシー**: 個人的な思考やアイデアをプロジェクトリポジトリに混ぜません
-- **衝突回避**: メインリポジトリのgit履歴を汚しません
-- **永続性**: プロジェクトが終了しても、学びや知見は残り続けます
+- **Portability**: Your knowledge travels with you across projects
+- **Privacy**: Personal thoughts and ideas stay out of project repositories
+- **Clean history**: No pollution of your main repo's git history
+- **Persistence**: Learnings and insights survive project completion
 
-### セットアップ
-
-`.claude/settings.local.json` に以下を追加：
-
-```json
-{
-  "env": {
-    "NOTEBOOK_PATH": "/path/to/your/notebook-repo"
-  },
-  "permissions": {
-    "additionalDirectories": ["/path/to/your/notebook-repo"]
-  }
-}
-```
-
-### ディレクトリ構造
+### Directory Structure
 
 ```
 notebook-repo/
-├── ideas/        # アイデア（ideator）
-├── reviews/      # 評価・レビュー（analyst）
-├── research/     # リサーチレポート（researcher）
-├── plans/        # プロジェクト計画（planner）
-├── learnings/    # 振り返り・教訓（analyst via /learning）
-└── index.md      # マスターインデックス（検索用）
+├── ideas/        # Ideas (ideator)
+├── reviews/      # Evaluations & reviews (analyst)
+├── research/     # Research reports (researcher)
+├── plans/        # Project plans (planner)
+├── learnings/    # Retrospectives & lessons (analyst via /learning)
+└── index.md      # Master index (for search)
 ```
 
-### エントリの形式
+### Entry Format
 
-全てのNotebookエントリは、フロントマター付きのMarkdownです。
+All Notebook entries are Markdown with frontmatter.
 
 ```markdown
 ---
-title: エントリ名
+title: Entry name
 type: idea | review | research | plan | learning
-date: 2026-04-01
-project: プロジェクト名
+date: YYYY-MM-DD
+project: Project name
 tags: [tag1, tag2]
 related: [path/to/related.md]
 ---
 
-本文をここに記述します。
+Body content goes here.
 ```
 
 ---
 
-## カスタマイズ
+## Customization
 
-### 独自のエージェントを追加する
+### Adding Custom Agents
 
-`.claude/agents/` にMarkdownファイルを作成します。
+Create a Markdown file in `.claude/agents/`.
 
 ```markdown
 ---
 name: my-agent
 model: sonnet
 description: >
-  エージェントの説明文。
+  Agent description.
 tools:
   - Read
   - Grep
   - Glob
 ---
 
-# エージェント名 - Kage Bunshin
+# Agent Name - Kage Bunshin
 
-あなたはKage Bunshinの**[役割名]**エージェントです。
+You are the **[Role Name]** agent of Kage Bunshin.
 
-## 性格・思考スタイル
-[エージェントの性格と思考の特徴を記述]
+## Personality & Thinking Style
+[Agent's personality and thinking characteristics]
 
-## 出力フォーマット
-[出力のテンプレートを定義]
+## Output Format
+[Define output template]
 
-## Notebook連携
-[Notebook保存のルールを定義]
+## Notebook Integration
+[Define Notebook save rules]
 
-## 制約
-[エージェントの行動制約を定義]
+## Constraints
+[Define behavioral constraints]
 ```
 
-### 既存エージェントの修正
+### Modifying Existing Agents
 
-`.claude/agents/` 内の対応するMarkdownファイルを直接編集してください。思考スタイル、出力フォーマット、使用するツールなどを自由にカスタマイズできます。
+Edit the corresponding Markdown file in `.claude/agents/` directly. You can freely customize thinking style, output format, tools, and more.
 
-### カスタムスキルの作成
+### Creating Custom Skills
 
-`.claude/skills/` にスキル定義ファイルを作成し、複数のエージェントを組み合わせた新しいワークフローを定義できます。
+Create skill definition files in `.claude/skills/` to define new workflows combining multiple agents.
 
-### Notebook構造の拡張
+### Extending Notebook Structure
 
-Notebookのディレクトリ構造は自由に拡張できます。新しいカテゴリを追加する場合は、対応するエージェントのNotebook連携セクションも更新してください。
-
----
-
-## 設計思想
-
-### 認知のパートナー
-
-Kage Bunshinは単なるツールではなく、あなたの思考を拡張する「認知のパートナー」です。各エージェントはそれぞれ異なる思考の専門性を持っており、一人では難しい多角的な検討を、エージェント間の協調によって実現します。
-
-### "より速く"ではなく"より良く"考える
-
-このシステムの目的は、思考を自動化することではありません。人間が見落としがちな視点を補い、思考の質を高めることです。Analystはあなたのアイデアに穴がないか検証し、Ideatorは固定観念を打ち破る新しい可能性を提示します。
-
-### あなたと共に育つ知識
-
-Notebookに蓄積された知識は、時間とともに価値を増します。過去のアイデア、意思決定の記録、学んだ教訓が相互に参照され、あなただけのナレッジグラフを形成します。プロジェクトが変わっても、マシンが変わっても、あなたの知識はあなたと共に移動します。
+The Notebook directory structure can be freely extended. When adding new categories, update the corresponding agent's Notebook Integration section as well.
 
 ---
 
-## ライセンス
+## Design Philosophy
 
-MIT License. 詳細は [LICENSE](./LICENSE) を参照してください。
+### A Cognitive Partner
+
+Kage Bunshin is not just a tool — it's a cognitive partner that extends your thinking. Each agent has a unique thinking specialty, and through inter-agent coordination, they enable multi-perspective analysis that would be difficult alone.
+
+### Think *Better*, Not Faster
+
+The goal is not to automate thinking. It's to complement perspectives humans tend to miss, raising the quality of thought. The Analyst verifies your ideas have no gaps. The Ideator presents new possibilities that break fixed assumptions.
+
+### Knowledge That Grows With You
+
+Knowledge accumulated in the Notebook increases in value over time. Past ideas, decision records, and lessons learned cross-reference each other, forming your own personal knowledge graph. Even when projects change or machines change, your knowledge moves with you.
+
+---
+
+<p align="center">
+  If you find this project useful, please consider giving it a ⭐
+</p>

@@ -1,123 +1,123 @@
 ---
 name: evaluate
 description: >
-  構造化された多次元評価。アイデアや提案の実現可能性を査定したいときに使用する。
-  「これ実現できる？」「フィージビリティは？」「やるべき？」「Go/No-Go判断」、
-  意思決定の支援、提案の評価を求められたときにトリガーされる。
+  Structured multi-dimensional evaluation. Use when assessing the feasibility of ideas or proposals.
+  Triggered by "is this feasible?", "feasibility?", "should we do this?", "Go/No-Go decision",
+  decision support, or proposal evaluation.
 user-invocable: true
 ---
 
-# Evaluate スキル
+# Evaluate Skill
 
-Researcher と Analyst エージェントを協調させ、アイデアや提案を多次元的に評価するワークフローです。
+A workflow that coordinates the Researcher and Analyst agents to perform multi-dimensional evaluation of ideas and proposals.
 
-## ワークフロー
+## Workflow
 
-### ステップ1: 評価対象の把握
+### Step 1: Understand the Evaluation Target
 
-ユーザーから提示されたアイデア・提案・計画を正確に理解する。以下を明確にする：
-- 評価対象の概要
-- 想定される文脈（市場、組織、技術環境など）
-- 特に重視する評価軸があれば確認
+Accurately understand the idea, proposal, or plan presented by the user. Clarify:
+- Overview of the evaluation target
+- Context (market, organization, technical environment, etc.)
+- Any priority evaluation axes if specified
 
-### ステップ1.5: 過去のNotebookコンテキスト取得
+### Step 1.5: Retrieve Past Notebook Context
 
-`NOTEBOOK_PATH` が設定されている場合、評価対象に関連する過去のエントリを検索する：
+If `NOTEBOOK_PATH` is set, search for past entries related to the evaluation target:
 
-1. `$NOTEBOOK_PATH/reviews/` 内を評価対象のキーワードで Grep（タイトル、タグ、本文を対象）
-2. マッチしたエントリを最大3件まで Read（フロントマター＋本文の先頭200文字）
-3. 取得した内容を以下の形式でステップ2・3のエージェント指示の冒頭に追加する：
-
-```
-## 過去の関連評価（Notebookより）
-### [タイトル] (date: YYYY-MM-DD)
-[本文の先頭200文字]
-```
-
-マッチが0件、または `NOTEBOOK_PATH` が未設定の場合はこのステップをスキップする。
-
-### ステップ2: リサーチフェーズ（Researcher）
-
-`researcher` エージェントを呼び出し、評価に必要な背景情報を収集させる：
-
-**researcher への指示:**
-```
-以下の提案/アイデアを評価するための背景調査を行ってください：
-
-[評価対象の説明]
-
-調査項目：
-1. 類似の事例・先行例（成功例・失敗例）
-2. 市場・技術の現状と動向
-3. 主要な競合やオルタナティブ
-4. 想定されるリスクや障壁
-5. 実現に必要な主要リソース・技術
-
-簡潔なリサーチサマリーとして出力してください。
-NOTEBOOK_PATH が設定されている場合、リサーチ結果を $NOTEBOOK_PATH/research/ に保存すること
-```
-
-### ステップ3: 評価フェーズ（Analyst）
-
-`analyst` エージェントを呼び出し、リサーチ結果を踏まえた構造化評価を行わせる：
-
-**analyst への指示:**
-```
-以下の提案を、リサーチ結果を踏まえて構造化評価してください：
-
-【評価対象】
-[評価対象の説明]
-
-【リサーチ結果】
-[researcher の出力]
-
-以下の6次元で各1〜5のスコアと根拠を付けてください：
-
-1. 実現可能性 (Feasibility): 技術的・リソース的に実現できるか
-2. 市場適合性 (Market Fit): ニーズがあるか、タイミングは適切か
-3. 必要労力 (Effort): 投入リソースの大きさ（小さい方が高スコア）
-4. リスク (Risk): リスクの大きさ（小さい方が高スコア）
-5. 革新性 (Innovation): 新規性、差別化の度合い
-6. インパクト (Impact): 実現した場合の影響の大きさ
-
-総合判定として Go / Conditional Go / No-Go の推奨を出してください。
-NOTEBOOK_PATH が設定されている場合、評価結果を $NOTEBOOK_PATH/reviews/ に保存すること
-```
-
-### ステップ4: 最終出力
+1. Grep `$NOTEBOOK_PATH/reviews/` for keywords from the target (searching title, tags, and body)
+2. Read up to 3 matching entries (frontmatter + first 200 characters of body)
+3. Prepend the retrieved content to the agent instructions in Steps 2 and 3 in this format:
 
 ```
-## 評価結果: [対象名]
-
-### 意思決定マトリクス
-
-| 評価軸 | スコア | 根拠 |
-|--------|--------|------|
-| 実現可能性 | X/5 | ... |
-| 市場適合性 | X/5 | ... |
-| 必要労力 | X/5 | ... |
-| リスク | X/5 | ... |
-| 革新性 | X/5 | ... |
-| インパクト | X/5 | ... |
-| **総合** | **X.X/5** | |
-
-### 推奨: [Go / Conditional Go / No-Go]
-
-**理由:** [2-3文の総合判断]
-
-### 強み / リスク・懸念 / リサーチ概要
-
-### 次のステップ
-- Go の場合: `/plan-project` でプロジェクト計画を推奨
-- 追加調査が必要な場合: 具体的な調査ポイントを提示
+## Related Past Evaluations (from Notebook)
+### [Title] (date: YYYY-MM-DD)
+[First 200 characters of body]
 ```
 
-## 出力形式
+Skip this step if zero matches or `NOTEBOOK_PATH` is not set.
 
-最終的にユーザーに提示するのは：
-1. 意思決定マトリクス（6次元スコア表）
-2. Go / Conditional Go / No-Go の推奨と理由
-3. 強み・リスクのサマリー
-4. リサーチ概要
-5. 次のステップの提案
-6. Notebook保存した場合はその旨を通知
+### Step 2: Research Phase (Researcher)
+
+Invoke the `researcher` agent to gather background information needed for evaluation:
+
+**Instructions for researcher:**
+```
+Conduct background research to evaluate the following proposal/idea:
+
+[Evaluation target description]
+
+Research items:
+1. Similar cases and precedents (successes and failures)
+2. Current market/technology landscape and trends
+3. Key competitors or alternatives
+4. Anticipated risks or barriers
+5. Key resources/technology needed for implementation
+
+Output as a concise research summary.
+If NOTEBOOK_PATH is set, save research results to $NOTEBOOK_PATH/research/
+```
+
+### Step 3: Evaluation Phase (Analyst)
+
+Invoke the `analyst` agent to perform structured evaluation based on research results:
+
+**Instructions for analyst:**
+```
+Provide a structured evaluation of the following proposal, based on research results:
+
+[Evaluation Target]
+[Evaluation target description]
+
+[Research Results]
+[researcher's output]
+
+Score on the following 6 dimensions (1-5 each) with rationale:
+
+1. Feasibility: Technically and resource-wise achievable?
+2. Market Fit: Is there demand? Is the timing right?
+3. Effort: Size of required investment (smaller = higher score)
+4. Risk: Size of risk (smaller = higher score)
+5. Innovation: Degree of novelty and differentiation
+6. Impact: Magnitude of effect if implemented
+
+Provide an overall recommendation of Go / Conditional Go / No-Go.
+If NOTEBOOK_PATH is set, save evaluation results to $NOTEBOOK_PATH/reviews/
+```
+
+### Step 4: Final Output
+
+```
+## Evaluation Results: [Subject]
+
+### Decision Matrix
+
+| Dimension | Score | Rationale |
+|-----------|-------|-----------|
+| Feasibility | X/5 | ... |
+| Market Fit | X/5 | ... |
+| Effort | X/5 | ... |
+| Risk | X/5 | ... |
+| Innovation | X/5 | ... |
+| Impact | X/5 | ... |
+| **Overall** | **X.X/5** | |
+
+### Recommendation: [Go / Conditional Go / No-Go]
+
+**Reason:** [2-3 sentence overall judgment]
+
+### Strengths / Risks & Concerns / Research Summary
+
+### Next Steps
+- If Go: Recommend `/plan-project` for project planning
+- If further research needed: Present specific research points
+```
+
+## Output Format
+
+Present the following to the user:
+1. Decision Matrix (6-dimension score table)
+2. Go / Conditional Go / No-Go recommendation with reasoning
+3. Strengths and risks summary
+4. Research summary
+5. Next step suggestions
+6. Notebook save notification if applicable
