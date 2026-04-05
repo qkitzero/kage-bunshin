@@ -2,18 +2,12 @@
   <img src="assets/banner.svg" alt="Kage Bunshin - AI agents for knowledge work, not code" width="100%">
 </p>
 
-<p align="center">
-
 [English](README.md) | [日本語](README_ja.md)
 
-</p>
-
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://github.com/qkitzero/kage-bunshin/stargazers"><img src="https://img.shields.io/github/stars/qkitzero/kage-bunshin?style=social" alt="Stars"></a>
-  <img src="https://img.shields.io/badge/Claude%20Code-compatible-blueviolet" alt="Claude Code compatible">
-  <a href="https://github.com/qkitzero/kage-bunshin/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
-</p>
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/qkitzero/kage-bunshin)](https://github.com/qkitzero/kage-bunshin/releases)
+[![Stars](https://img.shields.io/github/stars/qkitzero/kage-bunshin?style=social)](https://github.com/qkitzero/kage-bunshin/stargazers)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/qkitzero/kage-bunshin/pulls)
 
 # Kage Bunshin
 
@@ -134,12 +128,12 @@ Notebookの検索・管理を行います。
 
 Kage Bunshinには4種の特化型エージェントが存在します。各エージェントは固有の思考スタイルを持ち、成果物を自ら書き出します。
 
-| エージェント | 役割 | 思考スタイル |
-|---|---|---|
-| Ideator | 発散思考、ブレインストーミング | 可能性を広げる。「もし〜だったら？」を繰り返し、制約を外して自由に発想する |
-| Analyst | 批判的分析、リスク評価、品質レビュー | エビデンスに基づく分析。評価とレビューの両面で建設的なフィードバックを提供する |
-| Planner | タスク分解、スケジューリング | 全体を俯瞰し、段階的に分解する。依存関係とリスクを考慮した現実的な計画 |
-| Researcher | 深い調査、情報収集 | 多角的検証と体系的な情報整理。一次情報を重視し、バイアスに注意する |
+| エージェント | 役割                                 | 思考スタイル                                                                   |
+| ------------ | ------------------------------------ | ------------------------------------------------------------------------------ |
+| Ideator      | 発散思考、ブレインストーミング       | 可能性を広げる。「もし〜だったら？」を繰り返し、制約を外して自由に発想する     |
+| Analyst      | 批判的分析、リスク評価、品質レビュー | エビデンスに基づく分析。評価とレビューの両面で建設的なフィードバックを提供する |
+| Planner      | タスク分解、スケジューリング         | 全体を俯瞰し、段階的に分解する。依存関係とリスクを考慮した現実的な計画         |
+| Researcher   | 深い調査、情報収集                   | 多角的検証と体系的な情報整理。一次情報を重視し、バイアスに注意する             |
 
 ---
 
@@ -209,15 +203,19 @@ tools:
 あなたはKage Bunshinの**[役割名]**エージェントです。
 
 ## 性格・思考スタイル
+
 [エージェントの性格と思考の特徴を記述]
 
 ## 出力フォーマット
+
 [出力のテンプレートを定義]
 
 ## Notebook連携
+
 [Notebook保存のルールを定義]
 
 ## 制約
+
 [エージェントの行動制約を定義]
 ```
 

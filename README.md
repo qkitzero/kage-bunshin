@@ -2,18 +2,12 @@
   <img src="assets/banner.svg" alt="Kage Bunshin - AI agents for knowledge work, not code" width="100%">
 </p>
 
-<p align="center">
-
 [English](README.md) | [日本語](README_ja.md)
 
-</p>
-
-<p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="https://github.com/qkitzero/kage-bunshin/stargazers"><img src="https://img.shields.io/github/stars/qkitzero/kage-bunshin?style=social" alt="Stars"></a>
-  <img src="https://img.shields.io/badge/Claude%20Code-compatible-blueviolet" alt="Claude Code compatible">
-  <a href="https://github.com/qkitzero/kage-bunshin/pulls"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome"></a>
-</p>
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Release](https://img.shields.io/github/v/release/qkitzero/kage-bunshin)](https://github.com/qkitzero/kage-bunshin/releases)
+[![Stars](https://img.shields.io/github/stars/qkitzero/kage-bunshin?style=social)](https://github.com/qkitzero/kage-bunshin/stargazers)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/qkitzero/kage-bunshin/pulls)
 
 # Kage Bunshin
 
@@ -23,7 +17,7 @@ Multiple specialized AI agents collaborate on your intellectual work — brainst
 
 ## Features
 
-**Thinking-first agent system** — While most AI agents assist with coding, Kage Bunshin extends your *thinking*. Idea generation, critical evaluation, project planning, research, and retrospectives.
+**Thinking-first agent system** — While most AI agents assist with coding, Kage Bunshin extends your _thinking_. Idea generation, critical evaluation, project planning, research, and retrospectives.
 
 **Notebook** — A dedicated git repository that stores all agent outputs. Ideas, decisions, and learnings persist across projects and sessions. Your knowledge travels with you.
 
@@ -134,12 +128,12 @@ Search and manage your Notebook.
 
 Kage Bunshin has 4 specialized agents. Each has a unique thinking style and writes its own deliverables.
 
-| Agent | Role | Thinking Style |
-|-------|------|---------------|
-| Ideator | Divergent thinking, brainstorming | Expands possibilities. Repeatedly asks "What if...?", removing constraints for free thinking |
-| Analyst | Critical analysis, risk assessment, quality reviews | Evidence-based analysis. Provides constructive feedback through both evaluation and review |
-| Planner | Task breakdown, scheduling | Bird's-eye view with step-by-step decomposition. Realistic plans considering dependencies and risks |
-| Researcher | Deep investigation, information gathering | Multi-source verification and systematic organization. Prioritizes primary sources, watches for bias |
+| Agent      | Role                                                | Thinking Style                                                                                       |
+| ---------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Ideator    | Divergent thinking, brainstorming                   | Expands possibilities. Repeatedly asks "What if...?", removing constraints for free thinking         |
+| Analyst    | Critical analysis, risk assessment, quality reviews | Evidence-based analysis. Provides constructive feedback through both evaluation and review           |
+| Planner    | Task breakdown, scheduling                          | Bird's-eye view with step-by-step decomposition. Realistic plans considering dependencies and risks  |
+| Researcher | Deep investigation, information gathering           | Multi-source verification and systematic organization. Prioritizes primary sources, watches for bias |
 
 ---
 
@@ -209,15 +203,19 @@ tools:
 You are the **[Role Name]** agent of Kage Bunshin.
 
 ## Personality & Thinking Style
+
 [Agent's personality and thinking characteristics]
 
 ## Output Format
+
 [Define output template]
 
 ## Notebook Integration
+
 [Define Notebook save rules]
 
 ## Constraints
+
 [Define behavioral constraints]
 ```
 
@@ -241,7 +239,7 @@ The Notebook directory structure can be freely extended. When adding new categor
 
 Kage Bunshin is not just a tool — it's a cognitive partner that extends your thinking. Each agent has a unique thinking specialty, and through inter-agent coordination, they enable multi-perspective analysis that would be difficult alone.
 
-### Think *Better*, Not Faster
+### Think _Better_, Not Faster
 
 The goal is not to automate thinking. It's to complement perspectives humans tend to miss, raising the quality of thought. The Analyst verifies your ideas have no gaps. The Ideator presents new possibilities that break fixed assumptions.
 
