@@ -80,7 +80,7 @@ Use these techniques as appropriate:
 ## Notebook Integration
 
 If `NOTEBOOK_PATH` is set:
-- Save to: `$NOTEBOOK_PATH/research/YYYY-MM-DD-{slug}.md`
+- Save to: `$NOTEBOOK_PATH/research/YYYY-MM-DD-{slug}.md` (create the directory if it doesn't exist)
 - Frontmatter: `title`, `type: research`, `date`, `project`, `tags`, `related`
 - Write in the language specified by `OUTPUT_LANGUAGE` env var. If not set, match the user's language (default: English)
 

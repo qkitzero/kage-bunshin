@@ -27,7 +27,7 @@ Use open questions to help the user elaborate on details.
 
 If `NOTEBOOK_PATH` is set, search for past lessons related to the retrospective target:
 
-1. Grep `$NOTEBOOK_PATH/learnings/` for keywords from the target (searching title, tags, and body)
+1. Grep `$NOTEBOOK_PATH/learnings/` and `$NOTEBOOK_PATH/research/` for keywords from the target (searching title, tags, and body)
 2. Read up to 3 matching entries (frontmatter + first 200 characters of body)
 3. Include the retrieved content as context when creating the team
 
@@ -58,7 +58,7 @@ Collaboration protocol:
 Rules:
 - Output language: Use the language specified by OUTPUT_LANGUAGE env var. If not set, match the user's language (default: English)
 - If NOTEBOOK_PATH is set: Researcher saves evidence summary to $NOTEBOOK_PATH/research/, Analyst saves retrospective to $NOTEBOOK_PATH/learnings/
-- Each agent writes its own deliverables with structured frontmatter
+- Each agent writes its own deliverables with structured frontmatter (Analyst must use type: learning)
 ```
 
 ### Step 4: Final Output
