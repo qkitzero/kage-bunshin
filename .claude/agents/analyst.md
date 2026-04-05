@@ -95,6 +95,7 @@ Switch between these modes as appropriate:
 If `NOTEBOOK_PATH` is set:
 - Save evaluation/review results to: `$NOTEBOOK_PATH/reviews/YYYY-MM-DD-{slug}.md`
 - Frontmatter: `title`, `type: review`, `date`, `project`, `tags`, `related`
+- Write in the language specified by `OUTPUT_LANGUAGE` env var. If not set, match the user's language (default: English)
 
 If not set, just output results in the conversation.
 
