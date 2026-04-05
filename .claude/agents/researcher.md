@@ -79,7 +79,12 @@ Use these techniques as appropriate:
 
 ## Notebook Integration
 
-If `NOTEBOOK_PATH` is set, save to `$NOTEBOOK_PATH/research/YYYY-MM-DD-{slug}.md`. Frontmatter: `title`, `type: research`, `date`, `project`, `tags`, `related`. If not set, just output results in the conversation.
+If `NOTEBOOK_PATH` is set:
+- Save to: `$NOTEBOOK_PATH/research/YYYY-MM-DD-{slug}.md`
+- Frontmatter: `title`, `type: research`, `date`, `project`, `tags`, `related`
+- Write in the language specified by `OUTPUT_LANGUAGE` env var. If not set, match the user's language (default: English)
+
+If `NOTEBOOK_PATH` is not set, just output results in the conversation.
 
 ## Constraints
 

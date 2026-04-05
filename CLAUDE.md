@@ -12,11 +12,11 @@ An OSS agent system for Claude Code where multiple specialized agents collaborat
 - **researcher** - Deep investigation, information gathering, multi-source verification
 
 ### Skills (`.claude/skills/`)
-Workflows that orchestrate multiple agents.
-- `/brainstorm` - Multi-perspective ideation via ideator + analyst
-- `/evaluate` - Structured evaluation via researcher + analyst
-- `/plan-project` - Goal decomposition via researcher + planner
-- `/learning` - Retrospective and lesson extraction via analyst
+Workflows that create Agent Teams for iterative multi-agent collaboration.
+- `/brainstorm` - Iterative ideation via ideator ⇄ analyst team
+- `/evaluate` - Investigation and assessment via researcher ⇄ analyst team
+- `/plan-project` - Research-backed planning via researcher ⇄ planner team
+- `/learning` - Evidence-based retrospective via researcher ⇄ analyst team
 - `/notebook` - Notebook search and management
 
 ### Notebook
@@ -73,11 +73,19 @@ Body
 
 - `OUTPUT_LANGUAGE`: Set the output language (`en`, `ja`, etc.). If not set, agents match the user's input language (default: English).
 
+## Multi-Agent Routing
+When the user's request matches one of the following patterns, automatically invoke the corresponding skill — even without an explicit slash command:
+- Brainstorming, idea generation, "any good ideas?" → `/brainstorm` (ideator + analyst)
+- Feasibility assessment, "is this viable?", "should we do this?" → `/evaluate` (researcher + analyst)
+- Project planning, task breakdown, "make a plan" → `/plan-project` (researcher + planner)
+- Retrospective, reflection, "what did we learn?" → `/learning` (researcher + analyst)
+- Notebook search, "find past ideas", "show saved content" → `/notebook`
+
 ## Rules
 - At the start of a new session, if `NOTEBOOK_PATH` is set, scan the Notebook for the 3 most recently updated entries (across all directories, based on modification time or the `date` field in frontmatter) to understand the user's current context and ongoing work
 - Each agent writes its own deliverables
 - If Notebook is not configured, skip persistence and output results only
 - Each agent does not work outside its area of expertise
-- Skills always operate through multi-agent coordination
+- Skills always operate through Agent Teams with iterative multi-agent collaboration
 - Output language follows `OUTPUT_LANGUAGE` setting, or matches the user's language (default: English)
 - All Notebook writes must include structured frontmatter

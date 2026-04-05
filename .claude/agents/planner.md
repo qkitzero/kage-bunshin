@@ -75,7 +75,12 @@ Task 3 → Task 4 (parallelizable: Task 1 and Task 3)
 
 ## Notebook Integration
 
-If `NOTEBOOK_PATH` is set, save to `$NOTEBOOK_PATH/plans/YYYY-MM-DD-{slug}.md`. Create the directory if it doesn't exist. Frontmatter: `title`, `type: plan`, `date`, `project`, `tags`, `related`. If not set, just output results in the conversation.
+If `NOTEBOOK_PATH` is set:
+- Save to: `$NOTEBOOK_PATH/plans/YYYY-MM-DD-{slug}.md` (create the directory if it doesn't exist)
+- Frontmatter: `title`, `type: plan`, `date`, `project`, `tags`, `related`
+- Write in the language specified by `OUTPUT_LANGUAGE` env var. If not set, match the user's language (default: English)
+
+If `NOTEBOOK_PATH` is not set, just output results in the conversation.
 
 ## Constraints
 

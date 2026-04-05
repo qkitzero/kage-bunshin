@@ -54,6 +54,7 @@ Always present multiple ideas (at least 3), with both a divergent phase prioriti
 If `NOTEBOOK_PATH` is set:
 - Save to: `$NOTEBOOK_PATH/ideas/YYYY-MM-DD-{slug}.md`
 - Frontmatter: `title`, `type: idea`, `date`, `project`, `tags`, `related`
+- Write in the language specified by `OUTPUT_LANGUAGE` env var. If not set, match the user's language (default: English)
 
 If not set, just output results in the conversation.
 

@@ -9,7 +9,7 @@ user-invocable: true
 
 # Learning Skill
 
-A workflow that uses the Analyst agent to perform structured retrospectives and persist lessons learned.
+A workflow that creates an Agent Team of Researcher and Analyst to perform structured retrospectives through evidence-based analysis and discussion.
 
 ## Workflow
 
@@ -23,69 +23,51 @@ Accurately understand the retrospective target presented by the user. Clarify:
 
 Use open questions to help the user elaborate on details.
 
-### Step 1.5: Retrieve Past Notebook Context
+### Step 2: Retrieve Past Notebook Context
 
 If `NOTEBOOK_PATH` is set, search for past lessons related to the retrospective target:
 
 1. Grep `$NOTEBOOK_PATH/learnings/` for keywords from the target (searching title, tags, and body)
 2. Read up to 3 matching entries (frontmatter + first 200 characters of body)
-3. Prepend the retrieved content to the agent instructions in Step 2 in this format:
-
-```
-## Related Past Lessons (from Notebook)
-### [Title] (date: YYYY-MM-DD)
-[First 200 characters of body]
-```
+3. Include the retrieved content as context when creating the team
 
 Skip this step if zero matches or `NOTEBOOK_PATH` is not set.
 
-### Step 2: Analysis Phase (Analyst)
+### Step 3: Create Agent Team
 
-Invoke the `analyst` agent to perform structured analysis:
+Create a team with the following teammates using their agent definitions from `.claude/agents/`:
 
-**Instructions for analyst:**
+**Teammates:**
+- `researcher` — gathers evidence, data, and context about what happened
+- `analyst` — performs structured retrospective analysis
+
+**Team instructions:**
 ```
-Perform a structured retrospective analysis on the following:
+Retrospective target: [Subject]
+Time period: [Period]
+Original goals: [Goals and expectations]
+[Past Notebook context if found]
 
-[Retrospective Target]
-[Target description]
+Collaboration protocol:
+1. Researcher gathers evidence: project history, outcomes, metrics, related context from Notebook and codebase
+2. Analyst performs initial retrospective analysis (what went well, what didn't, patterns, key learnings)
+3. Researcher challenges the analysis — verifies claims against evidence, surfaces overlooked factors
+4. Analyst refines the analysis based on Researcher's input, deepens root cause analysis
+5. Continue iterating until both agree the lessons are well-evidenced and actionable (aim for 2-3 rounds)
 
-[Time Period & Context]
-[Period and background information]
-
-[Original Goals]
-[Goals and expectations]
-
-Analyze using the following framework:
-
-1. **What went well**
-   - Identify 3-5 success factors
-   - Analyze why they worked
-
-2. **What didn't go well**
-   - Identify 3-5 problems/challenges
-   - Root cause analysis
-
-3. **Patterns**
-   - Recurring patterns observed
-   - Connections to similar past experiences
-
-4. **What to do differently**
-   - Specific, actionable improvement actions
-   - Priority for each action (High / Medium / Low)
-
-5. **Key Learnings**
-   - The 3 most important lessons from this experience
-   - Express in a generalizable form applicable to other contexts
-
-If NOTEBOOK_PATH is set:
-- Save retrospective and lessons to $NOTEBOOK_PATH/learnings/YYYY-MM-DD-{slug}.md (frontmatter type must be `learning`)
+Rules:
+- Output language: Use the language specified by OUTPUT_LANGUAGE env var. If not set, match the user's language (default: English)
+- If NOTEBOOK_PATH is set: Researcher saves evidence summary to $NOTEBOOK_PATH/research/, Analyst saves retrospective to $NOTEBOOK_PATH/learnings/
+- Each agent writes its own deliverables with structured frontmatter
 ```
 
-### Step 3: Final Output
+### Step 4: Final Output
 
 ```
 ## Retrospective: [Subject]
+
+### Discussion Summary
+[How the retrospective analysis evolved through team discussion]
 
 ### Time Period & Context
 [Overview]
@@ -94,15 +76,17 @@ If NOTEBOOK_PATH is set:
 
 ### What Went Well
 1. **[Item]**: [Description]
+   - Evidence: [Supporting data from Researcher]
 2. ...
 
 ### What Didn't Go Well
 1. **[Item]**: [Description]
    - Root cause: ...
+   - Evidence: [Supporting data from Researcher]
 2. ...
 
 ### Patterns
-- [Recurring trends observed]
+- [Recurring trends observed, validated by evidence]
 
 ### What to Do Differently
 | Action | Priority | Notes |
@@ -123,8 +107,9 @@ If NOTEBOOK_PATH is set:
 ## Output Format
 
 Present the following to the user:
-1. What went well / What didn't go well
-2. Discovered patterns
-3. Specific improvement actions (with priority)
-4. Key lessons (3)
-5. Notebook save status
+1. Brief summary of the team discussion process
+2. What went well / What didn't go well (with evidence)
+3. Discovered patterns
+4. Specific improvement actions (with priority)
+5. Key lessons (3)
+6. Notebook save status
