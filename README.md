@@ -2,6 +2,10 @@
   <img src="assets/banner.svg" alt="Kage Bunshin - AI agents for knowledge work, not code" width="100%">
 </p>
 
+<p align="center">
+  <img src="assets/demo/brainstorm.gif" alt="kage-bunshin /brainstorm demo" width="100%">
+</p>
+
 [English](README.md) | [日本語](README_ja.md)
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
